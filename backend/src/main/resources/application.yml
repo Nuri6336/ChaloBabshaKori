@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: chalobabshakori-backend
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/chalobabshakori}
+    username: ${DB_USER:chalo}
+    password: ${DB_PASSWORD:chalo}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+
+server:
+  port: ${PORT:8080}
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:change-me-change-me-change-me-change-me-0123456789}
+    expiration-minutes: ${JWT_EXPIRATION_MINUTES:720}
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
